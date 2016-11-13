@@ -8,8 +8,7 @@
                 <span class="member-name">
                     <%= @politician.first_name %> <%= @politician.last_name %>
                 </span>
-                <span class="in-office">in office for <%= @politician.years_in_office %> years</span>
-                <p><%= @politician.party %></p>
+                <span class="in-office"><%= @politician.party %> in office for <%= @politician.years_in_office %> years</span>
             </h1>
         </header>
     </div>
@@ -21,7 +20,6 @@
                         <td>Bill</td>
                         <td>Y/N</td>
                         <td>Lean</td>
-                        <td>Type</td>
                     </tr>
                 </thead>
                 <tbody>
@@ -41,7 +39,6 @@
                             <% else %>
                                 <td>Left</td>
                             <% end %>
-                            <td>Environmental</td>
                         </tr>
                     <% end %>
                 </tbody>

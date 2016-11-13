@@ -193,6 +193,19 @@ table.stats td {
     text-align: center;
 }
 
+table.stats td .image-wrapper {
+    height: 50px;
+    width: 50px;
+    background-size: cover;
+    background-position: top center;
+}
+
+table.stats td h3 {
+    float: left;
+    font-family: "brothers",sans-serif;
+    font-size: 25px;
+}
+
 .republican table.stats td {
     border-color: red;
 }

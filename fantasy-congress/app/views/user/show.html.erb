@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+
+
+<p><%= @user.username %></p></li>
+
+<ul>
+    <% @caucus.each do |politician| %>
+        <li>
+            <h3><%= politician.first_name %> <%= politician.last_name %></h3>
+            <div class="image-wrapper" style="background-image:url('https://www.govtrack.us/data/photos/<%= politician.photo_id %>-200px.jpeg')"></div>
+        </li>
+    <% end %>
+</ul>
+
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', user_path %>

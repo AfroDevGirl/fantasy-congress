@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get 'home/index'
   root 'home#index'
   
-  resources :users
+  resources :user
   resources :politicians
   resources :matches
   resources :leagues 

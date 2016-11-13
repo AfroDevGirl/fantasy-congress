@@ -11,6 +11,19 @@ class MatchesController < ApplicationController
   # GET /matches/1.json
   def show
     @match 
+    @player_a = User.find(@match.player_a_id)
+    @player_b = User.find(@match.player_b_id)
+    
+    @all_politicians = @player_a.politicians.zip(@player_b.politicians)
+    
+    @player_a.politicians.each do |rep|
+      bills_introduced = rep.bills.length
+      @match.player_a_points += bills_introduced * 5
+    end
+    @player_b.politicians.each do |rep|
+      bills_introduced = rep.bills.length
+      @match.player_b_points += bills_introduced * 5
+    end
   end
 
   # GET /matches/new

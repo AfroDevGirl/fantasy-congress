@@ -5,5 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   
   belongs_to :league
+  has_many :user_politicians
   has_many :politicians, through: :user_politicians
 end

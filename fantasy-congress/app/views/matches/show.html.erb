@@ -1,4 +1,38 @@
-<p id="notice"><%= notice %></p>
+<div class="democrat">
+    <div class="header-container">
+        <header class="wrapper clearfix">
+          <h1 class="title" style="text-align:center;">
+              <span class="member-name">head to head</span>
+              <span class="in-office">Steven vs. Rudy</span>
+          </h1>
+        </header>
+    </div>
+    <table class="stats">
+        <thead>
+            <tr>
+                <td>PresidentBlackLamboBlue Score: 15</td>
+                <td>HocusPotus Score: 20</td>
+            </tr>
+        </thead>
+        <tbody>
+            <% @all_politicians.each do |reps|%>
+                <tr>
+                    <% reps.each do |rep|%>
+                        <td>
+                            <div class="image-wrapper" style="background-image:url('https://www.govtrack.us/data/photos/<%= rep.photo_id %>-200px.jpeg')"></div>
+                            <h3 class="member-name">
+                                <%= link_to rep.full_name, rep %>
+                            </h3>
+                            <span><%= rep.bills.length * 5 %> pts.</span>
+                            <% if rep.twitter_id %>
+                                <%= link_to "@#{rep.twitter_id}","http://twitter.com/home?status= You%20cost%20me%20my%20matchup%20on%20Caucus%20Clash!!!%20@#{rep.twitter_id}", :target => "_blank" %>
+                            <% end %>
+                        </td>
+                    <% end %>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+</div>
 
-<%= link_to 'Edit', edit_match_path(@match) %> |
-<%= link_to 'Back', matches_path %>
+<p id="notice"><%= notice %></p>
