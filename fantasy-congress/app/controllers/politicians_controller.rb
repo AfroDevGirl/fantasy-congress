@@ -11,6 +11,7 @@ class PoliticiansController < ApplicationController
   # GET /politicians/1.json
   def show
     @politician 
+    @bills = @politician.bills 
   end
 
   # GET /politicians/new

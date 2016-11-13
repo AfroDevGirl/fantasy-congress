@@ -1,4 +1,49 @@
 <p id="notice"><%= notice %></p>
 
+<div class="header-container">
+    <header class="wrapper clearfix">
+        <img src="https://www.govtrack.us/data/photos/<%=@politician.photo_id%>-200px.jpeg"/>
+        <h1 class="title">
+            <span class="member-name">
+                <%= @politician.first_name %> <%= @politician.last_name %>
+            </span>
+            <span class="in-office">in office for 20 years</span>
+        </h1>
+    </header>
+</div>
+<div class="main-container">
+    <div class="main wrapper clearfix">
+        <div class="stats">
+            <div class="Rtable Rtable--3cols">
+                <table>
+                    <thead>
+                        <tr>
+                            <td>Bill</td>
+                            <td>Y/N</td>
+                            <td>Lean</td>
+                            <td>Type</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>HR-1122</td>
+                            <td>Yay!</td>
+                            <td>Left</td>
+                            <td>Environmental</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div> <!-- #main -->
+</div> <!-- #main-container -->
+
+<div class="footer-container">
+    <footer class="wrapper">
+        <h3>footer</h3>
+    </footer>
+</div>
+
+
 <%= link_to 'Edit', edit_politician_path(@politician) %> |
 <%= link_to 'Back', politicians_path %>
