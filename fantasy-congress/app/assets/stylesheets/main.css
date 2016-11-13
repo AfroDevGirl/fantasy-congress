@@ -60,11 +60,6 @@ body {
     font: 16px/26px Helvetica, Helvetica Neue, Arial;
 }
 
-.wrapper {
-    width: 90%;
-    margin: 0 5%;
-}
-
 /* ==============
     MOBILE: Menu
    ============== */
@@ -102,12 +97,7 @@ nav a:hover {
    ============== */
 
 .main {
-    padding: 30px 0;
-}
-
-.main article h1 {
-    font-family: "brothers-word-logos";
-    font-size: 2em;
+    padding: 0 0;
 }
 
 .main aside {
@@ -131,19 +121,119 @@ nav a:hover {
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
+.header-container {
+    color: #fff;
+}
 
+.republican .header-container {
+    background-color: #ff5959;
+}
 
+.democrat .header-container {
+    background-color: #5959ff;
+}
 
+h1.title {
+    font-family: "brothers",sans-serif;
+    margin-top: 5vw;
+}
 
+h1.title .member-name {
+    display: block;    
+    font-size: 8vw;
+    line-height: 1;
+    margin-bottom: -5px;
+}
 
+h1.title .in-office {
+    font-size: 3vw;
+    font-weight: 100;
+    font-style: italic;
+    text-transform: uppercase;
+    line-height: 0;
+}
 
+h1.title a {
+    color: #fff;
+}
 
+.image-wrapper {
+    border-radius: 50%;
+    float: left;
+    height: 100px;
+    margin: 15px 4vw 15px 15px;
+    position: relative;
+    overflow: hidden;
+    width: 100px;
+}
 
+.image-wrapper img{
+    width: 100%;
+    height: auto;
+}
 
+table.stats {
+    margin: 0 auto;
+    text-align: center;
+    width: 100%;
+}
 
+table.stats thead td{
+    font-family: "brothers",sans-serif;
+    font-size: 25px;
+    padding: 10px 0;
+}
 
+table.stats td {
+    border: 1px solid;
+    text-align: center;
+}
 
+.republican table.stats td {
+    border-color: red;
+}
 
+.republican table.stats thead td{
+    color: red;
+}
+
+.democrat table.stats td {
+    border-color: blue;
+}
+
+.democrat table.stats thead td{
+    color: blue;
+}
+
+.scandal h1.status {
+    background: red;
+    font-family: "brothers",sans-serif;
+    font-size: 18vw;
+    line-height: 1;
+    margin: 0;
+    padding: 10px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.scandal .main.wrapper {
+    padding: 0 5vw;
+}
+
+.scandal p {
+    font-size: 3.8vw
+}
+
+.head-to-head .image-wrapper{
+    float: none;
+    height: 70px;
+    margin: 8px auto;
+    width: 70px;
+}
+
+.head-to-head .title {
+    margin-left: 4vw
+}
 
 
 /* ==========================================================================
@@ -152,91 +242,23 @@ nav a:hover {
 
 @media only screen and (min-width: 480px) {
 
-/* ====================
-    INTERMEDIATE: Menu
-   ==================== */
-
-    nav a {
-        float: left;
-        width: 27%;
-        margin: 0 1.7%;
-        padding: 25px 2%;
-        margin-bottom: 0;
-    }
-
-    nav li:first-child a {
-        margin-left: 0;
-    }
-
-    nav li:last-child a {
-        margin-right: 0;
-    }
-
-/* ========================
-    INTERMEDIATE: IE Fixes
-   ======================== */
-
-    nav ul li {
-        display: inline;
-    }
-
-    .oldie nav a {
-        margin: 0 0.7%;
-    }
 }
 
 @media only screen and (min-width: 768px) {
 
-/* ====================
-    WIDE: CSS3 Effects
-   ==================== */
-
-    .header-container,
-    .main aside {
-        -webkit-box-shadow: 0 5px 10px #aaa;
-           -moz-box-shadow: 0 5px 10px #aaa;
-                box-shadow: 0 5px 10px #aaa;
-    }
-
-/* ============
-    WIDE: Menu
-   ============ */
-
-    .title {
-        float: left;
-    }
-
-    nav {
-        float: right;
-        width: 38%;
-    }
-
-/* ============
-    WIDE: Main
-   ============ */
-
-    .main article {
-        float: left;
-        width: 57%;
-    }
-
-    .main aside {
-        float: right;
-        width: 28%;
-    }
 }
 
 @media only screen and (min-width: 1140px) {
+       
+    .main-container {
+        max-width: 1024px;
+        margin: 0 auto;
+    }
+}
 
 /* ===============
     Maximal Width
    =============== */
-
-    .wrapper {
-        width: 1026px; /* 1140px - 10% for margins */
-        margin: 0 auto;
-    }
-}
 
 /* ==========================================================================
    Helper classes

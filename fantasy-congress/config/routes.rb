@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :votes
   resources :leagues
   get 'home/index'
   root 'home#index'

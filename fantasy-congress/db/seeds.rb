@@ -8,12 +8,18 @@
 
 politicians = HTTParty.get('https://www.govtrack.us/api/v2/role?current=true&limit=600')
 bills = HTTParty.get('https://www.govtrack.us/api/v2/bill?congress=114')
+votes = HTTParty.get('https://www.govtrack.us/api/v2/vote/?congress=114&limit=1800')
+
 the_league = League.create!(name: "Anthony's Wienies")
+
 alexis = User.create!(username: "alexis", email: "alexis@test.com", password: "tester", league_id: the_league.id) 
 rudy = User.create!(username: "rudy", email: "rudy@test.com", password: "tester", league_id: the_league.id)
 david = User.create!(username: "david", email: "david@test.com", password: "tester", league_id: the_league.id)
 stephen = User.create!(username: "stephen", email: "stephen@test.com", password: "tester", league_id: the_league.id)
 
+1767.times do |index|
+    Vote.create!(congressional_vote_id: votes["objects"][index])
+end 
     
 540.times do |index|
     current_politician = politicians["objects"][index]
