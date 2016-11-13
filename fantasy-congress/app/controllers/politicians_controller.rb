@@ -12,6 +12,7 @@ class PoliticiansController < ApplicationController
   def show
     @politician 
     @bills = @politician.bills 
+    @stats = @politician.votes
   end
 
   # GET /politicians/new

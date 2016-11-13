@@ -17,9 +17,6 @@ rudy = User.create!(username: "rudy", email: "rudy@test.com", password: "tester"
 david = User.create!(username: "david", email: "david@test.com", password: "tester", league_id: the_league.id)
 stephen = User.create!(username: "stephen", email: "stephen@test.com", password: "tester", league_id: the_league.id)
 
-1767.times do |index|
-    Vote.create!(congressional_vote_id: votes["objects"][index])
-end 
     
 540.times do |index|
     current_politician = politicians["objects"][index]
@@ -56,6 +53,22 @@ end
         is_current: current_bill["is_current"])
 end 
 
+1767.times do |index|
+    current_vote = votes["objects"][index]
+    
+    if  current_vote["related_bill"]
+        vote_id = current_vote["options"][0]["vote"]
+        voters = HTTParty.get("https://www.govtrack.us/api/v2/vote_voter/?vote=#{vote_id}&limit=540")
+        
+        voters["meta"]["total_count"].times do |index|
+            vote_cast = voters["objects"][0]["option"]["key"]
+            rep_id = voters["objects"][index]["person"]["id"]
+            
+            rep = Politician.find_or_create_by(photo_id: rep_id)
+            vote = Vote.create!(congressional_vote_id: vote_id, bill_title: current_vote["related_bill"]["display_number"], vote_cast: vote_cast, sponsor_id: current_vote["related_bill"]["sponsor"], politician_id: rep.id)
+        end
+    end 
+end 
 
 
 users = User.all()
@@ -77,6 +90,6 @@ users.each do |user|
     end
 end
 
-match1 = Match.create!(player_a_id: alexis.id, player_b_id: rudy.id)
-match2 = Match.create!(player_a_id: stephen.id, player_b_id: david.id)
+Match.create!(player_a_id: alexis.id, player_b_id: rudy.id)
+Match.create!(player_a_id: stephen.id, player_b_id: david.id)
 
