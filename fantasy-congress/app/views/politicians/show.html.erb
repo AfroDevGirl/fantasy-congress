@@ -8,7 +8,7 @@
                 <span class="member-name">
                     <%= @politician.first_name %> <%= @politician.last_name %>
                 </span>
-                <span class="in-office">in office for 20 years</span>
+                <span class="in-office">in office for <%= @politician.years_in_office %> years</span>
                 <p><%= @politician.party %></p>
             </h1>
         </header>
@@ -25,12 +25,50 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <% @stats.each do |vote| %>
+                        <tr>
+                            <td><%= vote.bill_title %></td>
+                            <% if vote.vote_cast == "+" %>
+                                <td>Yay!</td>
+                            <% elsif vote.vote_cast == "-" %>
+                                <td>Nay!</td>
+                            <% else %>
+                                <td>Meh.</td>
+                            <% end %>
+                            
+                            <% if Politician.find_by(photo_id: vote.sponsor_id).party == "Republican" %>
+                                <td>Right</td>
+                            <% else %>
+                                <td>Left</td>
+                            <% end %>
+                            <td>Environmental</td>
+                        </tr>
+                    <% end %>
+                </tbody>
+            </table>
+            <table class="stats">
+                <thead>
                     <tr>
-                        <td><%= @stats %></td>
-                        <td>Yay!</td>
-                        <td>Left</td>
-                        <td>Environmental</td>
+                        <td>Bill</td>
+                        <td>Current Status</td>
+                        <td>Introduced Date</td>
+                        <td>Is It Alive?</td>
                     </tr>
+                </thead>
+                <tbody>
+                    <% @bills.each do |bill| %>
+                        <tr>
+                            <td><%= bill.bill_type_label %> <%= bill.bill_number %></td>
+                            <td><%= bill.current_status %></td>
+                            <td><%= bill.introduced_date %></td>
+                            
+                            <% if bill.is_alive %>
+                                <td>Yes!</td>
+                            <% else %>
+                                <td>No!</td>
+                            <% end %>
+                        </tr>
+                    <% end %>
                 </tbody>
             </table>
         </div> <!-- #main -->
