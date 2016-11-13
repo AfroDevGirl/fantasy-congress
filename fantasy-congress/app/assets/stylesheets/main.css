@@ -139,7 +139,7 @@ h1.title {
 }
 
 h1.title .member-name {
-    display: block;    
+    display: block;
     font-size: 8vw;
     line-height: 1;
     margin-bottom: -5px;
@@ -170,6 +170,10 @@ h1.title a {
 .image-wrapper img{
     width: 100%;
     height: auto;
+}
+
+.logo {
+    background-image: url(<%= asset_path 'image.png' %>)
 }
 
 table.stats {
@@ -249,7 +253,7 @@ table.stats td {
 }
 
 @media only screen and (min-width: 1140px) {
-       
+
     .main-container {
         max-width: 1024px;
         margin: 0 auto;
