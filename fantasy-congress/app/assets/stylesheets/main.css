@@ -160,11 +160,11 @@ h1.title a {
 .image-wrapper {
     border-radius: 50%;
     float: left;
-    height: 100px;
+    height: 200px;
     margin: 15px 4vw 15px 15px;
     position: relative;
     overflow: hidden;
-    width: 100px;
+    width: 200px;
 }
 
 .image-wrapper img{

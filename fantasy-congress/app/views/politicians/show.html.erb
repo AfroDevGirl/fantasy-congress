@@ -1,4 +1,4 @@
-<div class="body-container">
+<div class="<%= @politician.party.downcase %>">
     <div class="header-container">
         <header class="wrapper clearfix">
             <div class="image-wrapper" style="background-image:url('https://www.govtrack.us/data/photos/<%= @politician.photo_id %>-200px.jpeg')">
@@ -9,6 +9,7 @@
                     <%= @politician.first_name %> <%= @politician.last_name %>
                 </span>
                 <span class="in-office">in office for 20 years</span>
+                <p><%= @politician.party %></p>
             </h1>
         </header>
     </div>
